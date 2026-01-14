@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Previsão do Tempo</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>🌦️ Previsão do Tempo</h1>
+</header>
+
+<main>
+  <form method="post">
+    <input name="cidade" placeholder="Digite sua cidade" required>
+    <button>Buscar</button>
+  </form>
+
+  {% if clima %}
+  <section class="card">
+    <p>🌡️ Temperatura: {{ clima.current.temperature_2m }} °C</p>
+    <p>💧 Umidade: {{ clima.current.relative_humidity_2m }} %</p>
+    <p>🌬️ Vento: {{ clima.current.wind_speed_10m }} km/h</p>
+    <p>🌧️ Precipitação: {{ clima.current.precipitation }} mm</p>
+    <p>⛰️ Altitude: {{ elevacao }} m</p>
+  </section>
+
+  <div class="ads">
+    <!-- espaço para anúncios -->
+  </div>
+  {% endif %}
+</main>
+
+<footer>
+  <p>Dados meteorológicos atualizados automaticamente</p>
+</footer>
+
+</body>
+</html>
+<h3>📆 Previsão 7 dias</h3>
+<ul>
+{% for i in range(7) %}
+  <li>
+    {{ clima.daily.time[i] }} —
+    🌡️ {{ clima.daily.temperature_2m_min[i] }}°C /
+    {{ clima.daily.temperature_2m_max[i] }}°C —
+    🌧️ {{ clima.daily.precipitation_sum[i] }} mm
+  </li>
+{% endfor %}
+</ul>

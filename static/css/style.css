@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eef3f7;
+  margin: 0;
+}
+
+header {
+  background: #2196f3;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+input, button {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.card {
+  background: white;
+  padding: 15px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.ads {
+  margin: 20px 0;
+  text-align: center;
+}
+
